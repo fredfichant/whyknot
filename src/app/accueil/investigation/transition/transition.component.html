@@ -1,0 +1,102 @@
+<h1 class=" fs-2 text-center">investigations <strong>nœudiennes</strong><span class="badge bg-secondary mx-3 my-3">transitions virtuelles entre états - transitions réelles</span></h1>
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="nav flex-sm-column nav-justified " style="background-color: rgb(125, 252, 7);">
+            <app-boutontresse class= 'nav-item mt-3 mb-3'>tresses</app-boutontresse>
+            <app-boutoncode class= 'nav-item mb-3'>codes</app-boutoncode>
+            <app-bouton-croisement class="nav-item mb-3">croisements</app-bouton-croisement>
+          <app-bouton-transition class= 'nav-item mb-3'>transitions</app-bouton-transition>
+          <app-boutonape class= 'nav-item mb-3'>ape</app-boutonape>
+          <app-boutonspin class= 'nav-item mb-3'></app-boutonspin>
+          <app-boutonautomate class= 'nav-item mb-3'></app-boutonautomate>
+          <app-boutontables class= 'nav-item mb-3'></app-boutontables>
+        </nav>
+    </div>
+    <div class="col-sm-8">
+        <p class="lead"> une métamorphose est un opérateur de transition entre deux états.</p>
+        <p> pour illustrer de manière simple notre propos nous dessinons un état ne recelant qu'un seul motif de métamorphose, un retournement de coin, vu sur le graphe comme coin retournable face k<sub>f</sub>.
+        la parure p' déterminée sur le graphe, nous écrivons à côté la table d'état qui représente l'équation d'état que nous déployons, en faisant apparaître les deux tournures t et t' en indices des parenthèses :
+        <ng-katex equation="η = (3ωp + 3ώp')t + (3ώp + 2ωp')t'"></ng-katex> et pour laquelle 
+        <ng-katex equation="ΔT = |6t − 5t'| = 1"></ng-katex>.
+        <br> 
+         l'équation du motif, lisible sur le graphe, est 
+         <ng-katex equation="k_f = ώp + (ωp' + ώp')"></ng-katex>, nous écrivons l' épingle retournante entre parenthèses en italique (nous omettons les tournures). 
+         nous savons que l'état est la somme topologique de son motif de métamorphose m et du bâti bm qui lui est spécifique; 
+         nous pouvons donc écrire l'équation d'état en faisant apparaître ses deux composantes nœudiennes, lisibles sur le graphe :
+         <br><ng-katex equation="η = [b] + [m] = [3ωp + 2ώp + ωp' + 2ώp'] + [ώp + (ωp' + 'ώp')]"></ng-katex>. 
+          soit la table (dessin).
+        <br>
+           à ce stade, développons la procédure (voir la ligne de dessins ci-après) :
+           <ol type="i">
+                <li> du graphe orné paré de l'état, nous "décrochons" le motif k<sub>f</sub>, en forme de Δ, de son bâti. 
+                    l'équation de l'état se scinde donc en deux équations partielles provisoires, celle du bâti qui reste invariante pour la métamorphose, et celle du motif de métamorphose qui sera retournée. </li>
+                <li> nous effectuons la métamorphose, le retournement, du motif qui de Δ, k<sub>f</sub>, devient Υ, k<sub>s</sub>. </li>
+                <li> nous "recollons" le motif obtenu, k<sub>s</sub>, Υ, au bâti et obtenons le nouveau graphe orné paré du nouvel état.</li>
+        </ol>
+        <p>le bilan de la transition s'écrit ainsi : 
+            état initial moins le motif métamorphosable plus le motif métamorphosé égale l'état final. 
+            nous appelons différentiel de la transition ce qui est écrit en italique dans le bilan et nous notons <br>
+        <ng-katex equation="δ–k_f,k_s = −k_f + k_s"></ng-katex> ou, indifféremment <small>comme écrit dans le dessin sous l'accolade</small>, <br>
+        <ng-katex equation="k_s − k_f = δ+k_s,k_f"></ng-katex>. soit finalement : <br>
+        <ng-katex equation="η_{final} = η_{initial} – k_f + k_s = η_{initial} + δ–k_f,k_s"></ng-katex>.
+        <br>l'équation du nouvel état est facile à établir puisqu'il suffit de substituer, sans toucher au reste, le bâti, l'équation du motif métamorphosé à celle du motif métamorphosable dans l'équation de l'état initial pour obtenir celle de l'état final, soit de 
+        <ng-katex equation="η_{initial} = [3ωp + 2ώp + ωp' + 2ώp'] + [ώp + (ωp' + ώp')]"></ng-katex> nous "décousons" 
+        <ng-katex equation="['ώp + (ωp'' + 'ώp'')] = k_f"></ng-katex> et "recousons" à la place son retourné 
+        <ng-katex equation="[ωp + ώp + ωp'] = k_s"></ng-katex> — <small class="text-muted ">que nous réécrivons, sans conséquence, seulement pour faire réapparaître l' épingle retournante, 
+        <ng-katex equation="[('ωp' + 'ώp') + ωp']"></ng-katex> </small>— pour obtenir <br>
+        <ng-katex equation="η_{final} = [3ωp + 2ώp + ωp' + 2ώp'] + [('ωp' + 'ώp') + ωp']"></ng-katex>, soit, et en tenant compte des tournures : <br>
+        <ng-katex equation="η_{final} = (4ωp + 2ώp')t + (3ώp + 2ωp')t'"></ng-katex>", avec 
+        <ng-katex equation="ΔT = |6t − 5t'| = 1"></ng-katex>. 
+        <br>cette métamorphose fait donc passer la partition  
+        <small class="text-muted">que nous écrivons dans l'ordre <ng-katex equation="\{a_{11}a_{12}a_{21}a_{22}\} x_{ij} = \{3323\}"></ng-katex></small> de l'entier 11 à
+        <ng-katex equation=" x'_{ij} = \{4322\} "></ng-katex>. la transition étant, comme nous le savons déjà, inversible.
+        </p><p>observons deux faits importants :
+            <ol> 
+            <li>- lorsque nous séparons le motif de son bâti nous scindons la parure en cet endroit, pour la recoller, après métamorphose, au même endroit; </li>
+            <li>- seules les transformations de paramètres dues à la transition interviennent dans l'équation finale.</li>
+            </ol>
+        <p>on ajoutera à cela le fait que le retournement, qui produit donc une perturbation locale, apparaît comme une double inversion de l'équation du motif de métamorphose.
+            les parures commutent entre elles ainsi que les ornures; cela s'exprime ainsi sur les coefficients : a<sub>11</sub> devient a<sub>22</sub> et réciproquement, a<sub>12</sub> devient a<sub>21</sub> et réciproquement. 
+        <br>dans la table (dessins), les deux lignes commutent ainsi que les deux colonnes. 
+           de même à un motif retournable "face" correspond un motif "sommet" et réciproquement.
+        <br>on peut exprimer cela de façon plus générale : dans un retournement, les paramètres (ornure, parure et tounure) du bâti restent invariants, 
+        pendant que les croisements du motifs commutent leurs ornures et leurs parures, et donc leur tournure restant invariante, 
+        le recollement raboutant les éléments correspondants des parures du bâti et du nouveau motif. 
+        <br>nous pouvons représenter cette procédure à l'aide des tables d'états (dessins) et affirmer : 
+        les équations d'états des motifs de métamorphoses d'un état initial permettent d'écrire, par retournement, l'équation d'état de l'état final pour chaque motif. 
+        </p><p>à partir de l'état final obtenu ci-dessus, continuons nos métamorphoses :
+        <br>jusque là tout va bien! nous effectuons la métamorphose de l'agrafe retournable comme ci-dessus pour le coin retournable. 
+        les dessins et les écritures des équations d'états se comportent "convenablement". 
+        cette conformité permet de dire que les transitions sont réelles.
+        <br> effectuons la métamorphose pas à pas. l'équation du motif, l'agrafe retournable "face", est (en italique entre parenthèses, l' épingle retournante) 
+            <ng-katex equation="a_f = (ωp + ώp) + 2ώp = ωp + 3ώp"></ng-katex>, 
+        <br>l'équation de son bâti est celle de son complément dans l'état entier :
+                <ng-katex equation=" b = 3ωp + 2ωp' + 2ώp'"></ng-katex>. 
+        <br>la métamorphose retourne a<sub>f</sub> 
+            <ng-katex equation="as = 3ωp' + ώp' = (ωp' + ώp') + 2ωp'"></ng-katex>. 
+        <br>ceci ajouté au bâti resté invariant donne l'état final :
+        <br><ng-katex equation= "η_{final} = b + as = [3ωp + 2ωp' + 2ώp'] + [3ωp' + ώp'] = 3ωp + 5ωp' + 3ώp'"></ng-katex>, 
+        <br>c'est-à-dire, en faisant apparaître les tournures,
+            <ng-katex equation= "η_{final} = (3ωp + 3ώp')t + 5ωp't'"></ng-katex>. 
+        <br>la transition réelle nous faisant passer de la partition {{'{'}}4322{{'}'}} à {{'{'}}3053{{'}'}}.
+    </p>
+    <h2>transitions virtuelles à partir d'un état</h2>
+        <p>effectuons le retournement d'une agrafe retournable sommet.
+        à partir de la table, nous lisons l'équation de l'état soit : 
+        <br><ng-katex equation="η = (2ωp + 4ώp')t + 5ωp't'"></ng-katex>; l'équation de l'agrafe est 
+        <br><ng-katex equation="a_s = 2ωpt + (ωp't' + ώp't)"></ng-katex> et par conséquent l'équation du bâti est 
+        <br><ng-katex equation="b(a_s) = η – a_s = 4ωp't' + 3ώp't"></ng-katex>.
+        <br>cela étant, nous effectuons la procédure : 
+        <ol type="1">
+            <li>– nous "décousons" l'agrafe du bâti, </li>
+            <li>– nous retournons le motif qui, de "sommet" devient "face" et... </li>
+            <li>– nous "recousons" le nouveau motif au bâti. lorsque nous effectuons le retournement de l'agrafe sur l'état, nous ne remarquons rien de spécial. 
+            tout se passe "normalement". c'est sur le graphe qu'il apparaît quelque chose que les équations d'état révèlent : les dessins et leurs écritures en termes d'équations d'états ne sont plus conformes.
+             que s'est-il passé? observons les ornures et les parures de l'agrafe retournable, leurs retournées sont 
+                <ng-katex equation="(ωpt + ώpt') + 2ώp't"></ng-katex>. c'est ce que nous devrions observer sur l'état final, mais ce qui est patent est l'équation : 
+                <ng-katex equation="a_f = ωp't' + 3ώp't"></ng-katex>!</li>
+        </ol>
+        <p> c'est ce genre de transition que nous appelons virtuelle.
+        démontage du processus. (dessins)</p>
+    </div>
+</div>

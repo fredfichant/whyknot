@@ -1,0 +1,51 @@
+<h1 class=" fs-2 text-center text-warning"><img src="assets\ICON\pencil.svg" style="width: 2em ">dessiner des amas<span class="badge bg-secondary mx-3 my-3">amas</span></h1>
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="nav flex-sm-column nav-justified">
+            <app-boutonamas class="nav-item mt-3 mb-3"></app-boutonamas>
+            <app-boutonmetamorphose class="nav-item  mb-3"></app-boutonmetamorphose>
+            <app-boutonombre class="nav-item mb-3"></app-boutonombre>
+            <app-boutongraphe class="nav-item mb-3"></app-boutongraphe>
+            <app-boutonrarete class="nav-item mb-3"></app-boutonrarete>
+            <app-boutonformule class="nav-item mb-3"></app-boutonformule>
+            <app-boutonmutation class="nav-item mb-3"></app-boutonmutation>
+        </nav>
+    </div>    
+<div class="col-sm-8">    
+<h2 class=" fs-3 text-center">un exemple ; le nœud 8<sub>20</sub></h2>
+    <p class="lead">nous dessinons l'amas à partir de l'un quelconque de ses états car chaque état recèle un ou plusieurs motifs de métamorphose et tous sont le "germe" de l'amas.</p>
+        <div class="text-center">
+            <img src="assets\SVG\c=8\amas821.svg" style= "width: 60%">
+        </div>
+    <p>tous les états de l'amas ont même nombre de croisements, huit, et tous ont des arcs de portée maximum 
+        <ng-katex equation="p_m = 2"></ng-katex>, conformément à la formule 
+        <ng-katex equation="8 ≥ 5.2 - 1 - 1"></ng-katex>. 
+        <small class="text-muted">exercice : vérifiez qu'en inversant un croisement, Dessus dessous, d'un quelconque état de l'amas ci-dessous, et obtenant ainsi un arc de 
+        <ng-katex equation="portée_3"></ng-katex>, l'état devient réductible</small>.
+    <br>la formule nous indique qu'il ne peut exister de nœud premier à un rond et 8 croisements acceptant un arc de portée > 2; par exemple, 
+        <ng-katex equation="8 ≥ 5.3 − 1 − 1"></ng-katex> est faux, etc.. <br>
+        les motifs de métamorphoses sont désignés par des signes placés dans leurs zones actives afin de rappeler les états du même signe qu'elles génèrent.
+    <br>l'état Ω est le seul état possédant deux motifs et ne donnant qu'une seule métamorphose 
+        <small>c'est-à-dire que l'effectuation des deux métamorphoses donne deux résultats indiscernables, l'état € -- exercice : essayez</small>; 
+        les états ♣ et ♥ sont chacun autométamorphosables, c'est-à-dire qu'un de leur motif redonne l'état; nous disons qu'il "rate"; 
+        à ce propos il est juste de remarquer qu'effectuer une métamorphose qui "rate" ou ne rien faire ce n'est pas la même chose!<br> 
+        l'état <b>€</b> est l'intermédiaire obligé entre <b>Ω</b> et le reste de l'amas.<br> 
+        aucun état n'est le dual d'aucun autre, ils sont donc tous parfaitement distincts, 
+        ce qui est d'ailleurs la définition du changement d'état.</p>
+    <h2 class="text-center">chemins dans l'amas, histoires</h2>
+        <p>il n'y a pas de chemin <small>-c'est-à-dire une suite d'états consécutifs-</small> des métamorphoses privilégié pour parcourir l'amas, 
+        en voici un, par exemple, qui passe par toutes les flèches et tous les états; 
+        il comporte 14 états donc 13 métamorphoses : 
+        <ng-katex equation="Ω € Ş Φ ♥ ♥ € ♣ ♣ ♥ β Ψ € Ω"></ng-katex>. <br>
+        on peut imaginer que chaque métamorphose s'effectue à la plus grande vitesse possible, soit celle de la lumière, 
+        sur la plus petite longueur envisageable, soit la longueur de planck, etc. <br>
+        le chemin ci-dessus, partant de <b>Ω</b> et y retournant, mettrait donc 13 temps de planck pour s'effectuer, soit 
+        <ng-katex equation="13 \times5,391•10^{-44}s ≈ 7•10^{-43}s"></ng-katex>. 
+        il est donc loisible de rechercher, pour chacun des états par exemple, 
+        le plus court chemin dans l'amas partant de l'état et y revenant en ayant parcouru tout l'amas,
+        c'est-à-dire être passé par tous les autres états.</p>
+
+</div>
+<div class="col-sm-2">
+    
+</div>

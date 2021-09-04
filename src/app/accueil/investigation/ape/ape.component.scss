@@ -1,0 +1,45 @@
+div {
+    text-align: justify;
+  }
+  h1 {
+    font-style: italic;
+    color: rgb(2, 59, 12);
+      border-top: 2px dotted rebeccapurple;
+      border-bottom: 6px solid rgb(24, 163, 78);
+      margin: 2rem;
+      border-radius: 1rem;
+    }
+  h2 {
+    
+    font-size: large;
+    text-align: center;
+    margin: 2rem;
+  }
+  h3 {
+    font-size: large;
+    text-align: center;
+    margin: 1rem;
+  }
+  p {
+    text-indent: -3em;
+    margin-left: 6em;
+    margin-right: 6em;
+  }     
+  mark {
+    color: blueviolet;
+    font-weight: bold;
+ }
+ .normal {
+  text-indent: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+
+ }
+ strong {
+   color: seagreen ;
+   font-weight: bolder;
+ }
+ em {
+  font-style: oblique;
+  color:crimson
+}

@@ -1,0 +1,124 @@
+<h1 class=" fs-2 text-center">investigations <strong>nœudiennes</strong><span class="badge bg-secondary mx-3 my-3">l'algorithme de partition d'un entier ape.</span></h1> 
+<div class="row">
+    <div class="col-sm-2">
+      <nav class="nav flex-sm-column nav-justified " style="background-color: rgb(125, 252, 7);">
+          <app-boutontresse class= 'nav-item mt-3 mb-3'>tresses</app-boutontresse>
+          <app-boutoncode class= 'nav-item mb-3'>codages</app-boutoncode>
+          <app-bouton-croisement class="nav-item mb-3">croisements</app-bouton-croisement>
+          <app-bouton-transition class= 'nav-item mb-3'>transitions</app-bouton-transition>
+          <app-boutonape class= 'nav-item mb-3'>ape</app-boutonape>
+          <app-boutonspin class= 'nav-item mb-3'></app-boutonspin>
+          <app-boutonautomate class= 'nav-item mb-3'></app-boutonautomate>
+          <app-boutontables class= 'nav-item mb-3'></app-boutontables>
+      </nav>
+      </div>
+    <div class="col-sm-7">
+            <p class="lead">deux consignes : 
+            <br>a) extraire 1 de n, puis de n - 1 jusqu'à épuisement des unités de n, et 
+            <br>b) à chaque étape, additionner les unités extraites; cela suffit pour obtenir la totalité des combinaisons de sommants d'un entier quelconque.
+            <p>à chaque étape de la partition, une seule opération est effectuée sur un seul élément à la fois, pas à pas; l'analyse n'oublie aucun élément ni aucune de leurs combinaisons.
+                <br>P(<i>n</i>) : si n > 1 alors (1, n - 1) sinon (m + 1) où m = Σ("1").<br> 
+                chaque entier n se répartit en partages de sommants P(<i>n</i>). 
+                ces partages se répartissent en orbitales w<sub>i</sub>. 
+                les orbitales d'un entier n se rassemblent en une orbite W<i>n</i>.<br> 
+                quel que soit n ≥ 2, il se situe dans un intervalle <ng-katex equation= "[I_n] = [2^q + 1, 2^{q+1}]"></ng-katex> où q = 0 à N. <br>
+                le nombre d'entiers contenus par intervalles est <ng-katex equation="I_n = 2q"></ng-katex>.<br> 
+                le nombre de partages de n ≥ 2 est <ng-katex equation="P_{(n)} = 2^{2n-1}"></ng-katex>, son nombre d'orbitales est 
+                <ng-katex equation="w_i = 2^{n-q-2}"></ng-katex> et son nombre de partages par orbitale est
+                <ng-katex equation="\frac {P_{(n)}} {w_i} = 2^{q+1}"></ng-katex>.<br> 
+                on peut considérer qu'il n'y a pas de partition de "1" 
+                – <small class="text-muted"> sauf à sous-entendre le "0", mais alors il y aurait une infinité de partitions de n'importe quel entier, ce qui serait une "zénonification" de l'algorithme lui ôtant toute opérativité (la partition n'est pas une atomistique)
+                </small> – et écrire W<sub>1</sub> = Φ. 
+                quand il y a "1" il y a "1" et c'est tout. 
+                la seule activité qui reste est de l'additionner à un autre "1" qui, ici, n'est pas là; mais "1" étant le plus petit sommant des autres entiers, il est concordant qu'il soit son propre et unique sommant. 
+                nous donnons le tableau des premières valeurs d' <b><i>ape</i></b>.
+            </p>
+        <h2>écrire les partitions</h2>
+            <p>nous écrivons les partitions de n = 2, 3 et 4. l'orbite de "4" comprend deux orbitales.
+                n est situé en tête d'une arborescence, son orbitale w0. 
+                chaque ligne correspond à un partage décliné selon l'algorithme par la ligne suivante. 
+                chaque partage est associé à son inverse miroir, ce qui est signifié par une flèche rouge, ce qui permet de n'en oublier aucun, les palindromes sont accompagnés d'un astérisque. lorsque tous les partages ne peuvent figurer dans une orbitale, les inverses miroirs permettent de constituer les orbitales complémentaires, ce qui est initié par n = 4. 
+                lorsque tous les inverses sont apparus, nous sommes assurés que toutes les orbitales ont été écrites, conformément aux formules ci-dessus. une orbitale étant cyclique, aucun partage n'est le premier ni le dernier, etc. 
+                c'est pour des raisons pratiques et de lisibilité que nous faisons commencer une orbitale par son partage le plus petit en nombre de sommants, n étant le plus petit d'entre tous et "11...1" = n le plus "grand". 
+                c'est pourquoi les sommants extrêmes ne sont pas précédés, pour les partages en "tête", ni suivis, pour les partages en "fin" d'orbitale, de leurs traits de déclinaison algorithmique que nous remplaçons par une flèche "remontante" unique.
+            </p>
+    
+        <h2>présentation littérale de ape</h2> 
+            <p>α = (<b>Δ,Κ</b>) où <b>Δ</b> = "<i>est différent de la lettre à gauche</i>" 
+            et <b>K</b> = "<i>est identique à la lettre de gauche</i>". 
+            cet alphabet à deux opérateurs permet de retranscrire n'importe quel mot composé de ces deux seules lettres, quel qu'en soit le nombre d'occurrences. 
+            donnons un exemple : soit le mot à sept lettres <b>ΔΚΚΔΚΔΔ</b>, son dérivé est <b>ΔΔΚΔΔΔΚ</b> dont le dérivé est <b>ΔΚΔΔΚKΔ</b>, etc.. 
+            nous obtenons ainsi des séries cycliques de mots déclinés, comme les partages ci-dessus. 
+            écrivons la série des mots déclinés les uns sous les autres :<br>
+            <b>ΔΚΚΔΚΔΔ</b><br>
+            <b>ΔΔΚΔΔΔΚ</b><br>
+            <b>ΔΚΔΔΚKΔ</b>, etc...<br>
+            appliquons ces idées au mot de 3 lettres <b>ΔΔΔ</b> :<br>
+            <b>ΔΔΔ</b><br>
+            <b>ΔKK</b><br>
+            <b>ΔΔK</b><br>
+            <b>ΔKΔ</b><br>
+            <b>ΔΔΔ</b><br> et indiquons le nombre de lettres en exposant, chaque fois, de sa lettre 
+            <small class="text-muted">l'exposant "1" est sous-entendu</small> :<br>
+            Δ<sup>3</sup><br>
+            ΔK<sup>2</sup><br>
+            Δ<sup>2</sup>K<br>
+            ΔKΔ<br>
+            ne retenons que les exposants,
+            nous reconnaissons l'orbitale unique de l'orbite de l'entier "3". 
+            cette procédure donne avec la même régularité la totalité des sommants de chaque entier.
+            </p>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <img src="assets\SVG\investigations\tabapespin.svg" class="img-fluid my-3">
+        <br>
+        <br>
+        <br>
+        <img src="assets\SVG\investigations\partition.svg" class="img-fluid my-3">
+        <br>
+        <img src="assets\SVG\investigations\partition4.svg" class="img-fluid my-3">
+        <br>
+        <img src="assets\SVG\investigations\partition5.svg" class="img-fluid my-3">
+        <br>
+    </div>
+</div>
+<div class="row">
+    <h2>ape numérique, littéral et parenthèses.</h2>
+    <div class="col-sm-4 " style="padding-right: 2em ">
+        <p class="normal"> cette présentation littérale d' ape nous déshabitue de la seule considération numérique des entiers et de leurs sommants et nous invite à accéder à la structure une à l'oeuvre dans cette présentation duelle de l'algorithme, où chaque entier apparaît comme composition d'unités circulairement dissociées et agrégées. 
+            l'usage de parenthèses met en évidence la communauté de ces deux présentations. 
+            ainsi, pour l'entier 3, nous obtenons : <br>
+            (111)<br>
+            (1)(11)<br>
+            (11)(1)<br>
+            (1)(1)(1)</p>
+        </div>
+        <div class="col-sm-4  ">
+        <p class="normal">le passage d'une lettre à l'autre, Δ K ou réciproquement, comme d'un sommant à l'autre, s'évoque alors comme changement de regroupement d'unités, autrement dit comme fermeture et ouverture de parenthèses. 
+            <br>de fait ape ne procède pas autrement : la soustraction d'unité à un nombre > 1 correspond à sa mise à part, et du reste de son nombre de départ et du reste du partage, lesquels, réciproquement, s'en distinguent. 
+            l' addition des unités manifeste, quant à elle, la formation de nouveaux ensembles par contiguïté. 
+            maintenant, substituons à chaque partage ci-dessus son parenthésage :<br>
+            ((( )))<br>
+            ( )(( ))<br>
+            (( ))( )<br>
+            ( )( )( )</p>
+        </div>
+        <div class="col-sm-4 " style="padding-left: 2em ">
+            <p class="normal">les sommants étant ainsi littéralement dénombrés, nous en dessinons les volutions en représentant plastiquement chaque unité parenthésée par des arêtes de graphes de connexités. 
+            ainsi, pour continuer avec 3, nous obtenons les partages de croisements suivants :<br>
+            I I I (par facilité typographique nous dessinerons les arêtes en faisceau par des suites de "I") 
+            <br>ɔ——c I I
+            <br> I I ɔ——c
+            <br>ɔ——c ɔ——c ɔ——c
+            <br>la combinatoire de tous les regroupements d'arêtes, en ribambelles ou en faisceaux, donne les configurations de graphes qui, dans notre exemple, sont toutes du nœud trèfle. 
+            </p>
+        </div>
+</div>
+    

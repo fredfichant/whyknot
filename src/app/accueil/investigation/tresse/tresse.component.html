@@ -1,0 +1,100 @@
+<h1 class='fs-2 text-center'>investigations <strong>nœudiennes</strong><span class="badge bg-secondary mx-3 my-3">tresses</span></h1>
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="nav flex-sm-column nav-justified " style="background-color: rgb(125, 252, 7);">
+            <app-boutontresse class= 'nav-item mt-3 mb-3'>tresses</app-boutontresse>
+            <app-boutoncode class= 'nav-item mb-3'>codes</app-boutoncode>
+            <app-bouton-croisement class="nav-item mb-3">croisements</app-bouton-croisement>
+            <app-bouton-transition class= 'nav-item mb-3'>transitions</app-bouton-transition>
+            <app-boutonape class= 'nav-item mb-3'>ape</app-boutonape>
+            <app-boutonspin class= 'nav-item mb-3'></app-boutonspin>
+            <app-boutonautomate class= 'nav-item mb-3'></app-boutonautomate>
+            <app-boutontables class= 'nav-item mb-3'></app-boutontables>
+        </nav>
+    </div>
+    <div class="col-sm-8">
+        <h2 class='text-center'>présentation en tresse</h2>
+        <p>un état nœudien peut se présenter selon une <mark>bi-orientation</mark>, 
+            c'est-à-dire qu'en parcourant le brin celui-ci change : tantôt "à gauche" tantôt "à droite" 
+            (évidemment le parcours en sens inverse inverse les orientations), nous ne retenons que leur opposition. 
+            pour certains de ces états, il est possible, par changements de présentations successifs, de les <mark>uni-orienter</mark>.
+            <br>ci-dessous une série de changements de présentation qui permet de modifier l'orientation de l'état.
+            on remarquera :
+            <br>- l'état intermédiaire est dual
+            <br>- sur le graphe de connexité de la présentation uni-orientée, les deux parures sinuantes en rouge sont combinées de façon concentrique. 
+            <br>- l'état uni-orienté, dans ce cas, peut s'obtenir par pliage de l'état de départ.
+            <br>on pourra concluer qu'un changement d'état permute la dualité d'un état.
+        <div class="text-center">
+            <img src="assets\SVG\investigations\uniorientation.svg" class="img-fluid"></div>
+        <p>une fois cela fait, nous plaçons le "centre" de cet état duquel nous tirons des rayons qui séparent chaque croisement de ses voisins. 
+            les rayons séparent donc l'état en autant de zones qu'il y a de croisements . C étant le nombre de croisements de l'état, chaque zone vaut donc 2π/C, dans notre exemple 2π/11. 
+            chaque rayon traverse le même nombre de "couches" (portions de brins), dans notre exemple 4. 
+            ces couches qui "feuillètent" l'état représenteront le nombre des brins de la tresse issue de cet état. </p>
+            <div class="text-center">
+                <img src="assets\SVG\investigations\sectorisation.svg" class="img-fluid"></div>
+        <h3>périple dans l'état, numérotation des croisements et des secteurs</h3>
+          <p>  à partir d'un croisement quelconque, nous effectuons un trajet dans l'état en suivant le brin jusqu'à revenir au croisement de départ, à la position initiale. 
+            nous numérotons les croisements au fur et à mesure de leur rencontre <small class="text-muted"> on ne renumérote pas les croisements déjà rencontrés</small>, dans notre exemple de 1 à 11, avec la convention suivante : 
+            le numéro est <i>primé</i> si le brin est rencontré par <i>dessous</i>. nous obtenons ainsi le mot d'état <b>m</b>, ou <i>mot-code</i>, circulaire, de longueur l = 2.C, de l'état : <b>1 2' 3 4 5' 6 7' 8 4' 9 10 1' 11 3' 9' 5 8' 11' 2 10' 6' 7</b>. 
+            à chaque croisement numéroté correspond un secteur de notre état sectorisé, auquel nous attribuons le même numéro que son croisement</p>
+            <p>nous coupons l'état selon un des rayons, ici le séparateur des zones 6 et 7 et nous déployons la "liasse" obtenue en la tresse correspondante, 
+            soit dans notre exemple la permutation circulaire 
+            <ng-katex equation="\{abcd/b'c'd'a'\}"></ng-katex>.</p>
+            <div class="text-center">
+                <img src="assets\SVG\investigations\tresse1.svg" class="img-fluid"></div>
+        <h3> parures sur l'état, parures sur la tresse</h3> 
+            <p>revenons à l'état tressable centré ci-dessus. les croisements se répartissent du centre à la périphérie, ou inversement, sur trois disques de centration, 
+            que nous appelons parures de l'état.
+            il y a deux parures, <i>p</i> , rouge, et <i>p'</i> , bleue, dont l'une en deux tenants, arbitrairement <i>p</i>, répartie sur les disques 1 au centre,
+             croisements <b>{{ '{' }}4, 5, 8{{ '}' }}</b>, et 3 à la périphérie, croisements <b>{{ '{' }}1, 2, 10{{ '}' }}</b> et <i>p'</i> , disque médian, croisements <b>{{ '{' }}3, 9, 6, 7, 11{{ '}' }}</b>. 
+            cette centration est conforme aux différentes méthodes que nous avons déjà rencontrées pour repérer la parure. 
+            (voir #déterminer la tournure de l'amas).</p>
+            <div class="text-center">
+                <img src="assets\SVG\investigations\tresseparure.svg" class="img-fluid"></div>
+        
+        </div>
+        <div class="col-sm-2">
+            <div class="p-2 border bg-light img-fluid mt-3 ">
+            <img src="assets\SVG\investigations\présentation-bi.svg">
+            <img src="assets\SVG\investigations\présentation-uni.svg">
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-8">
+            <p>il est alors loisible de coder la tresse afin d'en obtenir une surface de seifert : la tresse comporte 4 couches formées par ses 4 brins et 11 croisements. 
+            nous notons un croisement <b>Xy</b> signifiant que le brin <b>X</b> passe Dessus le brin <b>y</b>. 
+            à partir du premier croisement le plus à gauche, soit <b>Bc</b>, et nous dirigeant vers la droite, nous lisons les croisements en déplaçant un curseur imaginaire qui balaie toute la tresse; 
+            nous obtenons alors la suite <b>Bc, Db, Ac, Ad, Ba, Bd, Cb, Dc, Ac, Bd, Ba</b> qui traduit les croisements de l'état selon le dictionnaire suivant : <b>Bc = 6, Db = 10, Ac = 5, Ad = 9, Ba = 4, Bd = 3, Cb = 2, Dc = 11, Ac = 8, Bd = 1, Ba = 7</b>. 
+            à ce stade, nous nous désintéressons de l'état et de ses croisements numérotés pour ne nous intéresser qu'à la tresse dont nous reprenons la liste <b>Bc, Db,Ac, Ad, Ba, Bd, Cb, Dc, Ac, Bd, Ba</b> 
+            que nous renumérotons simplement <b>1 2 3 4 5 6 7 8 9 10 11</b>. 
+            assignons une ornure <b>ω</b> au premier croisement <b>1</b>, alors toutes les autres ornures sont fixées et notre suite devient : <b>ωωώωωώώώωώω</b>.
+            projetons sur la tresse les disques de parures; ceux-ci se déploient de la façon suivante : la parure <i>p</i>, qui est en deux tenants, pare les croisements <b><i>renumérotés</i></b> <b>2 3 5 7 9 10</b> et la parure <i>p'</i> pare les autres <b>1 4 6 8 11</b>. 
+            nous savons que <b>ornure</b> + <i>parure</i> = <b><i>tournure</i></b>, donc sont de <b>tournure t</b> les croisements <b>ωp</b> et <b>ώp'</b>, 
+            c'est-à-dire t = {{ '{' }}2 5 6 8 9{{ '}' }}, et de tournure t' les croisements ωp' et ώp, c'est-à-dire t' = {{ '{' }}1 3 4 7 10 11{{ '}' }}. 
+            nous codons maintenant ainsi la suite des croisements : 1 <b>2</b> 3 4 <b>5 6</b> 7 <b>8 9</b> 10 11 qu'un logiciel adéquat, genre seifertview, traduira en surface de seifert. 
+            pour les besoins du logiciel, nous traduisons notre codage dans leur protocole : les chiffres en <b>gras</b> — <i>soit de tournure t</i> — deviennent des lettres MAJUSCULES, les autres — <i>soit de tournure t'</i> — minuscules; 
+            la tresse contient trois "niveaux" de codage, [a], [b] et [c] correspondant aux trois "niveaux" (les disques) de parures : la parure p inférieure est [a] et supérieure [c], et la parure médiane p' est [b]. 
+            traduisons notre liste : 1 = b, 2 = C, 3 = a, 4 = b, 5 = C, 6 = B, 7 = a, 8 = B, 9 = C, 10 = a, 11 = b; de là, 
+            notre (nouveau) codage devient <b>b C a b C B a B C a b</b>; c'est ce "mot" que l'algorithme, redonnant notre tresse, traduira en surface seifertisée.</p>
+            <p><em>remarque</em> : comme on peut s'en apercevoir, notre codage n'utilise toujours pas le codage paresseux des mathématiciens des nœuds — que nos paramètres incluent, l'inverse n'est pas vrai —, 
+            même si les logiciels seifert y sont adonnés, ne connaissant pas le paramétrage nœudien. pour le plaisir, nous donnons ci-après trois interprétations de la tresse, obtenues à partir du logiciel "seifert-view".</p>
+            
+            <p><em>commentaires</em> : à gauche la surface, au centre les plateaux sont gonflés en "boules" et à droite en mailles. cette surface comporte 4 "plateaux", ou "boules", soit un(e) de plus que de lettres différentes. 
+                entre deux plateaux il y a autant de bandes qu'il y a de croisements de mêmes niveaux, [A] est le plateau rez de chaussée, [B, b] le 1er étage et [c] le second.</p>
+    </div>
+        
+    <div class="col-sm-3">   
+        <div class="p-3 border bg-light ">
+            <img src="assets\PNG\seifertview1.jpg" class="img-fluid ">
+        </div>
+        <div class="p-3 border bg-light ">
+            <img src="assets\PNG\seifertview2.jpg" class="img-fluid ">
+        </div>
+        <div class="p-3 border bg-light ">
+            <img src="assets\PNG\seifertview3.jpg " class="img-fluid ">
+        </div>
+    </div>
+</div>
+            

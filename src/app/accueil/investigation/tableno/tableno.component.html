@@ -1,0 +1,59 @@
+<h1 class=" fs-2 text-center">investigations <strong>nœudiennes</strong><span class="badge bg-secondary mx-3 my-3">table nœudienne des nœuds</span></h1>
+<div class="row">
+    <div class="col-sm-2">
+      <nav class="nav flex-sm-column nav-justified " style="background-color: rgb(125, 252, 7);">
+          <app-boutontresse class= 'nav-item mt-3 mb-3'>tresses</app-boutontresse>
+          <app-boutoncode class= 'nav-item mb-3'>codages</app-boutoncode>
+          <app-bouton-croisement class="nav-item mb-3">croisements</app-bouton-croisement>
+          <app-bouton-transition class= 'nav-item mb-3'>transitions</app-bouton-transition>
+          <app-boutonape class= 'nav-item mb-3'>ape</app-boutonape>
+          <app-boutonspin class= 'nav-item mb-3'></app-boutonspin>
+          <app-boutonautomate class= 'nav-item mb-3'></app-boutonautomate>
+          <app-boutontables class= 'nav-item mb-3'></app-boutontables>
+      </nav>
+      </div>
+    <div class="col-sm-8">
+
+    <h2> - les graphes-nœuds.</h2> 
+        <ol type="1">
+        <li>tout graphe est graphe d'ombre d'état de nœud.</li>  
+        <li>le nœud trivial est le nœud alterné tiré de l'ombre.</li>  
+        <li>les portées obéissent aux formules des portées (#tableau ci-après)></li></ol> 
+        <h3>A - le système de production est :</h3>
+        <h3>B - établissement de la table des nœuds</h3><br>
+    <div class="text-center ">
+    <img src="assets\SVG\investigations\tablenoeudi.svg" class="img-fluid">
+    </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
+    <h2>commentaires succincts.</h2> 
+        <p>le tout premier nœud est un nœud à deux ronds et deux croisements conformément à la #formule des portées, l'enlacement, qui est autodual et n'a donc qu'un seul graphe de connexité. 
+        il est de plus le premier de la série diagonale génératrice 
+        <small class="text-muted">du tableau relatif à la formule des portées, voir plus haut #tableau des portées</small>
+        de raison arithmétique 1 pour les ronds et 4 pour les croisements, 
+        c'est-à-dire au nombre de ronds augmentant de un et pour les croisements 4, consécutivement, soit la suite (2,2) (3,6) (4,10), etc. 
+        (voir séquence #''arcs, ronds, croisements'', pnr, page 145) et représentant les plus petits nœuds à R ronds ayant un état présentant un arc de portée p. 
+        l'enlacement est aussi le premier de la série infinie des nœuds centres faits d'une unique torsade, paire et à deux ronds si C = 2n et impaire à un seul rond si C = 2n + 1. le reste est sans difficulté particulière jusqu'à 6 croisements. les nœuds à trois ronds et 6 croisements inaugurent, dans la série diagonale génératrice, les nœuds aptes à recevoir des arcs de portée 2, c'est-à-dire les nœuds non triviaux métamorphosables et qui commencent avec la maja 6 croisements. 
+        nous avons dessiné quatre nœuds triviaux à un rond, deux nœuds triviaux à deux ronds, dont le nœud "centre" constitué d'une seule torsade, deux nœuds triviaux à trois ronds le "borroméen" et un collier (comme avec des trombones), et un métamorphosable à trois ronds, n'oublions pas la for-mule 6 ≥ 5.2 - 3 - 1, la "maja", représentée ici par ses deux seuls états de son seul amas. 
+        on voit donc que le nœud dit de la maja connaît deux états : un état de même métabole que le "borroméen", et un état de même métabole que le nœud trivial à 3 ronds autre que le borroméen, le collier. 
+        la "maja" est donc "arrimée" à deux métaboles dont chacun contient en sa racine l'un des deux autres nœuds triviaux, le borroméen ou le "collier".
+        (dessins)</p>
+        <h2>arcs, ronds, croisements : tableau des portées (tp)</h2>
+        
+        <img src="assets\SVG\investigations\supersériedg3.svg" class="img-fluid">
+    </div>
+    <div class="col-sm-5">
+        <img src="assets\SVG\investigations\majamétabol2.svg" class="img-fluid">
+
+    <div><<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+    <p class="normal lead"><b>construction du tableau</b> 
+        <br>la case R/P indique les portées p dont les colonnes sont numérotées de 1 à p ..., et les nombres de ronds R dont les lignes sont numérotées de 1 à R .... </p>
+        <p>les nœuds non-alternés, c'est-à-dire métamorphosables, commencent à p = 2. la diagonale de la série génératrice est écrite en italique gras. 
+        elle commence à (2, 1). chaque case du tp contient le nombre de croisements C calculé selon les formules ci-après. 
+    à l'intersection de R et de p on en lit le contenu ainsi : il n'y a pas de nœuds à R ronds et acceptant une portée maximum p dont le nombre de croisements soit inférieur à C sinon il est réductible; 
+    qui peut s'énoncer un nœud à R ronds et à C croisements ne peut accepter un arc de portée supérieure à p sinon il est réductible.</p>
+</div>
+</div>

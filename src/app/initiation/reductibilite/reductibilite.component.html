@@ -1,0 +1,111 @@
+<h1 class=" fs-2 text-center text-warning">initiation à la plastique nœudienne<span class="badge bg-secondary mx-3 my-3">réductibilité</span></h1>
+<div class="row">
+  <div class="col-sm-2">
+    <nav class="nav flex-column nav-justified">
+      <app-boutonportance class= 'nav-item  mt-3 mb-3'></app-boutonportance>
+      <app-boutonnormalisation class="nav-item mb-3 "></app-boutonnormalisation>
+      <app-boutonreductibilite class="nav-item mb-3"></app-boutonreductibilite>
+      <app-boutontournure class="nav-item mb-3"></app-boutontournure>
+    </nav>
+  </div>
+  <div class="col-sm-7">
+    <p class="lead">la réductibilité d’un état est la première recherche à effectuer sur un état de nœud. 
+    un état est réductible s’il peut perdre un croisement ou plus à la suite d’un mouvement de brin. 
+    l’état est réduit lorsqu’il ne peut plus perdre de croisements.</p>
+    <p>une réduction peut être <i>patente</i>, ou <i>latente</i> : elle ne deviendra patente qu’après une suite de métamorphoses.
+    un signe infaillible de réductibilité est la présence d’un <i>arc de portée trop longue</i> ou d'une suite trop longue d'arcs consécutifs de 
+    <ng-katex equation='portée_0'></ng-katex>, 
+    comme nous l'indique la remarque ci-après.
+    <br />on remarquera, dans un état non alterné, la corrélation entre les arcs de 
+    <ng-katex equation="portée_{≥2}"></ng-katex> et les suites d'arcs consécutifs de 
+    <ng-katex equation='portée_0'></ng-katex> : à chaque arc de 
+    <ng-katex equation='portée_2'></ng-katex>, il correspond un arc de
+    <ng-katex equation='portée_0'></ng-katex>. il y a donc autant d'arcs de 
+    <ng-katex equation='portée_2'></ng-katex> que d'arcs de 
+    <ng-katex equation='portée_0'></ng-katex> dans un état non alterné quelconque. en effet, un arc de 
+    <ng-katex equation='portée_0'></ng-katex> est un arc de 
+    <ng-katex equation='portée_2'></ng-katex> vu de l'autre côté, et réciproquement. une suite de deux arcs consécutifs de 
+    <ng-katex equation='portée_0'></ng-katex> correspond à un arc de 
+    <ng-katex equation='portée_3'></ng-katex> vu aussi de l' autre côté, 
+    et réciproquement aussi, comme le montrent les dessins ci-contre, etc..</p>
+     
+    <p>nous disons qu'il y a un équilibre congruent entre arcs de
+    <ng-katex equation='portée_{p ≥ 2}'></ng-katex>  et suites de 
+    <ng-katex equation='(p - 1)'></ng-katex>arcs de 
+    <ng-katex equation='portée_0'></ng-katex> ; celles-ci sont en miroir à leurs arcs, ce que les antiparticules sont à leurs particules. 
+    ce que nous dessinons, comme un processus d'annihilation dans nos dessins, 
+    les valeurs x et y sont les valeurs des portées résultant de l'annihilation des arcs-longs et de leurs antiarcs.
+  <br />l'arc de 
+    <ng-katex equation='portée_2'></ng-katex> et son antiarc de 
+    <ng-katex equation='portée_0'></ng-katex>forment une lunule non alternée et donc annulable, ce qui se traduit par une torsade localement nulle. 
+    le comptage des portées pour ce motif s'effectue comme suit : en b et b' les portées non visibles, avant annihilation, sont respectivement b et b' . 
+    la portance de la portion de brin bb vaut donc, avant annihilation,
+    <ng-katex equation="p_{bb'} = b + 0 + b' = b + b' = x"></ng-katex>. la portée de l'arc-long aa, avant annihilation, vaut 
+    <ng-katex equation='p_2 = 2'></ng-katex>. après annulation de la lunule, cette portée passe à 0. au total, avant annihilation nous avions 
+    <ng-katex equation="P_{init} = 2 + b + b' = 2 + x"></ng-katex>, et après l'annulation de la lunule, nous obtenons 
+    <ng-katex equation="P_{fin} = b + b' = p_{bb'} = x"></ng-katex>.   l'arc de 
+    <ng-katex equation='portée_3'></ng-katex> et son antiarc forment de même une lunule non alternée 
+    <small class="text-muted">indirecte, celle-ci, car traversée par une portion de brin étrangère à la lunule</small> et donc aussi annulable. pour ce motif à l'arc-long de 
+    <ng-katex equation="portée_3$"></ng-katex>, le calcul donne : avant annihilation 
+    <ng-katex equation="P_{bb'} = b + 0 + 0 + b' = b + b"></ng-katex> , que nous notons
+    <ng-katex equation='x + y'></ng-katex>, et donc 
+    <ng-katex equation='P_{init} = 3 + x + y'></ng-katex>.  après l'annulation de la lunule, la portée de l'arc-long passe de 3 à 1 ce qui donne 
+    <ng-katex equation="P_{fin} = b + b' + 1 = x + y + 1"></ng-katex>. l'état nœudien perd donc dans tous les cas deux croisements et sa portance diminue d'autant. </p> 
+    <p>mais allons un peu plus loin, et reprenons l'exemple de la portance de l'état à un rond et 10 croisements ci-contre : 
+    <ng-katex equation='P = 0112102021'></ng-katex>.
+    cette portance se décrit ainsi, à condition de ne pas tenir compte de l'ordre dans lequel se suivent les arcs : 3 arcs de 
+    <ng-katex equation='portée_2'></ng-katex>, 4 arcs de 
+    <ng-katex equation='portée_1'></ng-katex> et 3 arcs de 
+    <ng-katex equation='portée_0'></ng-katex>.
+    <img src= "assets\SVG\portance\noeud-arc.svg" width="260" style="float: right; padding: 1rem;">
+    <br> nous pourrions désigner cette portance par une formule succincte qui ferait apparaître la quantité d'arcs de 
+    <ng-katex equation='portée_m'></ng-katex>, sorte de polynôme des portées 
+    <ng-katex equation='ṗ^2 = 3p^2 + 4p + 3'></ng-katex>, l'indice de ṗ indiquant la portée maximum, ou plus simplement 
+    <ng-katex equation='ṗ^2 = \{3^243\}'></ng-katex> voire même 
+    <ng-katex equation='ṗ^2 = \{3^24\}'></ng-katex> puisqu'il n'y a aucune ambiguïté, le nombre d'arcs de 
+    <ng-katex equation='portée_0'></ng-katex> étant automatiquement égal au nombre d'arcs de 
+    <ng-katex equation='portée_2'></ng-katex> <small class="text-muted"> seulement il faut s'en souvenir!</small>.  de façon plus générale, on peut assigner à chaque état son polynôme des portances : 
+    <ng-katex equation='ṗ_m = a_1p_m + a_2p_m-1 + ... + a_mp + a_1p_0'></ng-katex>
+    (<ng-katex equation='a_{m+1}'></ng-katex> valant en effet <ng-katex equation='a_1'></ng-katex>) ou son ensemble des coefficients 
+    <ng-katex equation='ṗ_m = a_1a_2...a_m'></ng-katex>, 
+    le coefficient des arcs 0 étant sous-entendu car toujours égal à a1 et la somme des coefficients égale au nombre d'arcs égal au nombre de croisements de l'état : 
+    <ng-katex equation='Σa_i = C'></ng-katex>.
+    <i>en tout état de cause portance P et polynôme des portées Pp ne sont pas strictement équivalents puisque la portance indique dans quel ordre se succèdent les arcs ce qui n'est évidemment pas le cas du polynôme.</i></p>
+  <h2 id="formule">la formule des portées</h2>
+    <p>p154 du livre #pnr, nous trouvons le tableau qui permet de lire le résultat suivant : 
+    <span class="lead">il n'y a pas d'état réduit de nœud à R ronds présentant un arc de portée p ayant moins de C croisements.</span> 
+    la portée maximum d’un arc notée 
+    <ng-katex equation='p_m'></ng-katex>, est donnée par la <mark>formule</mark>
+    <small class="text-muted"> voir la séquence complète d'élaboration de la formule dans #pnr -- arcs, ronds, croisements -- pp 140 à 154</small>
+    <ul>
+    <li>quand <ng-katex equation='R ≤ p + 1'></ng-katex>, alors <ng-katex equation='C ≥ 5\times p_m − R − 1'></ng-katex></li>
+    <li>lorsque <ng-katex equation='R ≥ p + 1'></ng-katex>, la formule est <ng-katex equation='C ≥ 2(p + R − 2)'></ng-katex></li>;
+    </ul>
+    <br> les deux formules sont équivalentes pour la série générique diagonale de nœuds réduits avec 
+    <ng-katex equation='R = p + 1'></ng-katex>, et les deux formules deviennent 
+    <ng-katex equation='C ≥ 4p – 2'></ng-katex>, soit la série générique de raison arithmétique 4, pour p = 1 à l'∞ : C = 2 (le simple "enlacement" à 2 ronds, seul de son espèce), 6 (tous les 3 ronds, borroméen, maja, etc.), 10 (à 4 ronds), 14 (à 5 ronds), etc. 
+    <small class="text-muted">voir le livre pnr et ci-après #générer les nœuds commentaires succincts</small> .
+    le plus petit nœud, en nombre de croisements, est l' enlacement à 2 ronds et 2 croisements; la formule donne 
+    <ng-katex equation='p_m = 1'></ng-katex>, soit : 
+    <ng-katex equation='2 ≥ 5\times1 - 2 - 1'></ng-katex>. le plus petit nœud en nombre de ronds est le trèfle à un rond et 3 croisements; la formule donne 
+    <ng-katex equation='p_m = 1'></ng-katex> soit : 
+    <ng-katex equation='3 ≥ 5\times1 - 1 - 1'></ng-katex>.
+    le plus petit nœud à un rond ayant un arc de portée 2 est un nœud à 8 croisements : 
+    <ng-katex equation='8 ≥ 5\times2 - 1 - 1'></ng-katex>. etc...
+    <small class="text-muted"> le tableau complet se trouve dans le livre pnr, p 154.</small>
+    <p class=lead>désormais, chaque fois que nous parlerons d'état, sans plus de précision, il s'agira d'un état réduit.</p>
+  </div>
+  <div class="col-sm-3 ">
+   
+    <div class="card mt-5" style="width: 3em;"><img src= assets\SVG\reductibilite\portéebis.svg >
+    </div>  
+    <div class="card mt-5"><img src= assets\SVG\reductibilite\portance.svg>
+    </div>
+    <div class="card mt-5"><img src= assets\SVG\reductibilite\colliers.svg>
+    </div>
+    <div class="card mt-5"><img src= assets\SVG\reductibilite\colliers2.svg>
+    </div>
+    <div class="card mt-5"><img src= assets\SVG\reductibilite\tableaup154.svg></div>
+  </div>
+
+</div>

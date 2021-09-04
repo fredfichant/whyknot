@@ -1,0 +1,75 @@
+<h1 class=" fs-2 text-center">investigations <strong>nœudiennes</strong><span class="badge bg-secondary mx-3 my-3">codage</span></h1> 
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="nav flex-sm-column nav-justified " style="background-color: rgb(125, 252, 7);">
+            <app-boutontresse class="nav-item mt-3 mb-3"></app-boutontresse>
+            <app-boutoncode class="nav-item mb-3"></app-boutoncode>
+            <app-bouton-croisement class="nav-item mb-3">croisements</app-bouton-croisement>
+            <app-bouton-transition class= 'nav-item mb-3'>transitions</app-bouton-transition>
+            <app-boutonape class= 'nav-item mb-3'>ape</app-boutonape>
+            <app-boutonspin class= 'nav-item mb-3'></app-boutonspin>
+            <app-boutonautomate class= 'nav-item mb-3'></app-boutonautomate>
+            <app-boutontables class= 'nav-item mb-3'></app-boutontables>
+        </nav>
+    </div>
+    <div class="col-sm-8">
+        <h2 >coder et décoder facilement un état de nœud pour pouvoir le transmettre en "aveugle"</h2>
+            <p>le mot-code de l'état contient ce qu'il faut d'information pour se passer de la procédure compliquée dite code de gauss étendu, 
+                cge, ou dowke-thistlewaite notation, dtn. nos dessins se lisent en "spirale" à partir du petit en haut à gauche proposé au codage, jusqu'à celui grand central de recomposition de l'état après décryptage en "aveugle", par téléphone sans image par exemple.
+            </p>
+        <h3>pour coder le nœud</h3>
+            <p><strong>principe du codage</strong>. à partir d'un croisement quelconque, nous effectuons un trajet dans l'état en suivant le brin jusqu'à revenir au croisement de départ, à la position <i>initiale</i>. 
+                nous numérotons les croisements au fur et à mesure de leur rencontre, on ne renumérote pas les croisements déjà rencontrés, avec la convention suivante :</p>
+                <p> <strong>le numéro est primé si le brin est rencontré par dessous</strong> . 
+                dans notre exemple, de 1 à 7 pour le premier rond, puis de "a" à "d" pour le deuxième, chacun des ronds fournissant une partie du code complet. 
+                nous obtenons ainsi le mot-code <b>m</b> de l'état, de longueur <b>l(m) = 2C</b>, avec un nombre de lignes égal à R <small class="text-muted">"R" est le nombre de ronds et "C" celui des croisements</small>, 
+                chaque ligne pour chaque mot-code partiel. dans notre exemple le mot-code complet est :<b>m = 123'42'56'7'///34'a'bc5'6d'b'a1'7dc</b>.
+                le mot-code étant circulaire, pour le mot-code partiel "numérique", du croisement 7' nous raboutons à 1; de même pour le second mot-code partiel, de c nous raboutons à 3. 
+                comme on le voit, les chiffres du mot-code sont l'image des croisements au fur et à mesure du trajet, ce qui rend inutile le marquage de l'orientation. 
+                tout comme les croisements donc, ces chiffres obéissent à la formule des portées : nous avons un état à 11 croisements et 2 ronds, la formule permet d'écrire 
+            <ng-katex equation= "11 ≥ 5\times2 - 2 - 1"></ng-katex> ce qui indique que la portée maximum tolérable est 2. 
+                eh bien! cela signifie que nous ne pouvons pas trouver dans le mot-code une suite constituée de plus de 2 chiffres de même prime <small>ou non prime, évidemment</small>.
+                c'est, entre autres, un moyen de contrôler la bonne saisie du mot-code, si le dessin de l'état est correct, ou la véracité du dessin de l'état, si le mot-code
+                a été correctement saisi. nous en déduisons que le mot-code d'un nœud trivial est nécessairement alterné : à la suite alternée des dessus dessous correspond la suite alternée des non prime prime.      
+        <h3 >pour décoder</h3>
+            <p><strong>pour décoder</strong> nous appliquons la procédure inverse : à partir de la convention d'écriture des numéros, primés non-primés, nous lisons l'un des deux codes partiels et dessinons au fur et à mesure les croisements consécutifs correspondants. 
+                lorsqu'un numéro réapparait, primé ou non, il faut rabouter vers la droite ou vers la gauche, le choix s'effectuant de manière empirique, en évitant les impasses graphiques éventuelles.
+                lorsqu'on a terminé un premier code partiel on effectue la lecture/dessin du second en positionnant correctement les croisements.
+            
+            <div class="text-center">
+                <img src="assets\SVG\investigations\décodage.svg" class="img-fluid mt-2 mb-2">
+            </div>
+            <p>suivons nos dessins pas à pas; <b><i>nous ne connaissons pas le dessin de départ, seulement le mot-code fourni oralement</i></b> :<em> 
+                    lecture du mot-code "numérique" </em><b>123'42'56'7'</b> 
+                    <ol type="a">
+                        <li>les croisements 1 et 2 sont non primés cela signifie que le brin qui les relie passe par dessus.</li> 
+                        <li>le croisement suivant est primé 3', cela signifie que le brin passe par dessous. puis 4.</li> 
+                        <li>réapparaît le croisement "2" mais primé 2', cela signifie que de 4 nous rejoignons "2" mais par en-dessous <small>heureusement!</small>.</li> 
+                        <li>puis 5, puis 6', enfin 7' pour rabouter à 1.</li>
+                    </ol>
+            
+            <p> <em>lecture du mot-code "alpha"</em> <b>34'a'bc5'6d'b'a1'7dc</b>. 
+                <ol type="A">
+                    <li>on positionne 3 correctement, le brin passe dessus pour cette occurrence, puis 4' sans difficulté.</li> 
+                    <li>le reste suit sans problème. l'état est entièrement reconstitué, il n'y aura plus qu'à esthétiser le dessin.</li> 
+                    <li>il s'en déduira l'effectuation de l'amas.</li>
+                </ol>
+            <p><em>remarque</em> : il est possible que le dessin donne la présentation duale du dessin de départ; la présentation duale étant un changement de présentation, rappelons-nous que changer de présentation ne change pas l'état. 
+                c'est bien le même état qui est communiqué de part et d'autre. 
+                pour s'en convaincre il suffira, notamment, de réécrire le mot-code et de le renvoyer afin que la manipulation et sa vérification soient complètes.
+            </p>
+            <p><em>invariance de jauge du codage</em> : chaque croisement d'un état offre deux directions de trajets pour former le mot-code, et il y a C croisements soit donc 2C possibilités différentes a priori. 
+                mais, quel que soit le croisement de départ et quelle que soit l'orientation choisie la procédure fonctionne toujours pareillement. 
+                de même elle est indépendante de l'état choisi, de l'amas, etc.
+            </p>
+            <hr>
+        <h2>codage des nœuds selon les paramètres nœudiens</h2>
+            
+    </div>
+    <div class="col-sm-2">
+
+        <div class="text-center mt-5">
+            <img src="assets\SVG\investigations\codage.svg" class="img-fluid my-5">
+        </div>
+</div>
+    
